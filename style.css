@@ -17,6 +17,7 @@ body {
     border: none;
     outline: none;
     cursor: pointer;
+    padding: 50px;
     font-size: 10rem;
 }
 
