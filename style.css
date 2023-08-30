@@ -40,3 +40,13 @@ body {
     margin-left: 10px;
     color: rgb(38, 0, 176);
 }
+
+.result-selection {
+    opacity: 0.6;
+    font-size: 5rem;
+}
+
+.result-selection.winner {
+    opacity: 1;
+    font-size: 10rem;
+}
