@@ -25,19 +25,43 @@ const selectionButtons = document.querySelectorAll('[data-selection]')
 //creating the selection of the emoji image
 
 //creating possible variables and determining winners between R/P/S in array
-const SELECTIONS = [ //in all caps as the global variable will not change
+const SELECTIONS = [ 
+    //in all caps as the global variable will not change
+    {
+        name: 'rock',
+        emoji: '✊',
+        beats: 'scissors'
+    },
+    {
+        name: 'paper',
+        emoji: '✋',
+        beats: 'rock'
+    },
+    {
+        name: 'scissors',
+        emoji: '✌️',
+        beats: 'paper'
+    }
+] //the selections, what they are and who they beat
 
-]
 
-
-selectionButtons.forEach(selectionButton =>{
-    selectionButton.addEventListener('click', e =>{
+selectionButtons.forEach(selectionButton => {
+    selectionButton.addEventListener('click', e => {
         const selectionName = selectionButton.dataset.selection
-        makeSelection(selectionName)
+        const selection = SELECTIONS.find(selection => selection.name === selectionName)
+        makeSelection(selection)
     })
 })
 
-function makeSelection(selection){
-    //console.log(selection)
-    //when each emoji is chosen, the correct name is shown in console
+function makeSelection(selection) {
+    const computerSelection = computerPlay()
+    //console.log(computerSelection) //This shows the randomly generated choice for CPU 
+    console.log(selection)//when each emoji is chosen, the correct name is shown in console
+}
+
+//now doing the computer selection
+function computerPlay() {
+    const getRandomValue = Math.floor(Math.random() * SELECTIONS.length) //gives option of 0,1 or 2
+    return SELECTIONS[getRandomValue]
+    //console.log(computerSelection)
 }
